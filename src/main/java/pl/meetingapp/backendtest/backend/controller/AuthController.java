@@ -30,6 +30,7 @@ public class AuthController {
     public User register(@Valid @RequestBody User user) {
         return userService.registerUser(user);
     }
+    @CrossOrigin(origins = "http://localhost:63342")
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
         Authentication authentication = authenticationManager.authenticate(
