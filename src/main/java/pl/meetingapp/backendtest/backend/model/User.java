@@ -1,5 +1,7 @@
 package pl.meetingapp.backendtest.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -7,6 +9,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
 
+//TODO JsonIgnore zapoznac sie z tym i dodac do projektu
 
 @Getter
 @Setter
@@ -25,6 +28,7 @@ public class User {
     @NotBlank
     @Column(unique = true)
     private String username;
+    @JsonIgnore
     @NotBlank
     @Size(min = 6)
     private String password;
